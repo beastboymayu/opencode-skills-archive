@@ -1,0 +1,86 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "llm7/qwen2.5-coder-32b-instruct",
+  "provider": {
+    "llm7": {
+      "name": "LLM7",
+      "npm": "@ai-sdk/openai-compatible",
+      "models": {
+        "qwen2.5-coder-32b-instruct": {
+          "name": "Qwen2.5 Coder 32B"
+        }
+      },
+      "options": {
+        "apiKey": "YOUR_API_KEY_HERE",
+        "baseURL": "https://api.llm7.io/v1"
+      }
+    },
+    "nvidia": {
+      "name": "Nvidia NIM",
+      "npm": "@ai-sdk/openai-compatible",
+      "models": {
+        "moonshotai/kimi-k2.5": {
+          "name": "Kimi K2.5"
+        },
+        "deepseek-ai/deepseek-v3.2": {
+          "name": "DeepSeek V3.2"
+        },
+        "google/gemma-4-31b-it": {
+          "name": "Gemma 4 31B"
+        },
+        "z-ai/glm5": {
+          "name": "GLM-5 744B"
+        },
+        "minimaxai/minimax-m2.5": {
+          "name": "MiniMax M2.5"
+        },
+        "qwen/qwen3.5-397b-a17b": {
+          "name": "Qwen 3.5 397B"
+        }
+      },
+      "options": {
+        "apiKey": "YOUR_NVIDIA_API_KEY_HERE",
+        "baseURL": "https://integrate.api.nvidia.com/v1"
+      }
+    }
+  },
+  "mcp": {
+    "filesystem": {
+      "type": "local",
+      "command": ["mcp-server-filesystem", "--allowed-directory", "/root/ActiveProjects"],
+      "enabled": true,
+      "timeout": 30000
+    },
+    "github": {
+      "type": "local",
+      "command": ["mcp-server-github"],
+      "environment": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "YOUR_GITHUB_TOKEN_HERE"
+      },
+      "enabled": true,
+      "timeout": 30000
+    },
+    "sqlite": {
+      "type": "local",
+      "command": ["mcp-server-sqlite"],
+      "enabled": false
+    },
+    "webfetch": {
+      "type": "local",
+      "command": ["mcp-server-fetch-typescript"],
+      "enabled": true,
+      "timeout": 30000
+    },
+    "sequential-thinking": {
+      "type": "local",
+      "command": ["mcp-server-sequential-thinking"],
+      "enabled": true,
+      "timeout": 30000
+    },
+    "memory": {
+      "type": "local",
+      "command": ["mcp-server-memory"],
+      "enabled": false
+    }
+  }
+}
